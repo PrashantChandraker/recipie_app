@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:recipie_app/constants.dart';
+import 'package:recipie_app/views/my_app_home_screen.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -13,6 +14,18 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
     int selectedIndex = 0;
    late final List<Widget> page;
+   @override
+  void initState() {
+   page=[
+    MyAppHomeScreen(),
+    navBarPage(Iconsax.heart),
+    
+    navBarPage(Iconsax.calendar),
+    
+    navBarPage(Iconsax.setting),
+   ];
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +78,7 @@ class _HomepageState extends State<Homepage> {
             label: "Setting",
           ),
       ]),
+      body: page[selectedIndex],
     );
   }
     navBarPage(iconName) {
