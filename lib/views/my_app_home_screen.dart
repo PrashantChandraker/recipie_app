@@ -16,7 +16,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
   String category = "All";
   // for category
   final CollectionReference categoriesItems =
-      FirebaseFirestore.instance.collection("App-Category");
+      FirebaseFirestore.instance.collection("Add-Category");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +49,38 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                     ),
                   ),
+                  //for category
                   StreamBuilder(
                     stream: categoriesItems.snapshots(),
                     builder:
                         (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                       if (streamSnapshot.hasData) {
-                        return const SingleChildScrollView();
+                        return SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: List.generate(
+                              streamSnapshot.data!.docs.length,
+                              (index) => GestureDetector(
+                                onTap: () {
+                                    
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: category == streamSnapshot.data!.docs[index]["name"] ? kPrimaryColor : Colors.white,
+
+                                    ),
+                                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                                    margin: EdgeInsets.only(right: 20),
+                                    child: Text(streamSnapshot.data!.docs[index]["name"], 
+                                    style: TextStyle(fontWeight: FontWeight.w600) ,),
+                                  ),
+                              ),
+                            ),
+                          ),
+                        );
                       }
+                      // If snapshot dont have data then circular progress indicator
                       return const Center(
                         child: CircularProgressIndicator(),
                       );
