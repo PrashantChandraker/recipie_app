@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:recipie_app/constants.dart';
+import 'package:recipie_app/constants/constants.dart';
 import 'package:recipie_app/views/my_app_home_screen.dart';
 
 class Homepage extends StatefulWidget {
