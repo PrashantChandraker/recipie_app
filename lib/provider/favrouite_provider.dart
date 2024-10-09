@@ -6,7 +6,7 @@ class FavoruiteProvider extends ChangeNotifier{
   List<String> _favouriteIds = [];
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  List<String> get favorites =>_favouriteIds;
+  List<String> get favourites =>_favouriteIds;
 
 
   FavoriteProvider(){

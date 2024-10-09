@@ -4,6 +4,8 @@ import 'package:iconsax/iconsax.dart';
 import 'package:recipie_app/constants/constants.dart';
 import 'package:recipie_app/views/my_app_home_screen.dart';
 
+import 'favourite_screen.dart';
+
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -17,8 +19,8 @@ class _HomepageState extends State<Homepage> {
    @override
   void initState() {
    page=[
-    MyAppHomeScreen(),
-    navBarPage(Iconsax.heart),
+    const MyAppHomeScreen(),
+    const FavouriteScreen(),
     
     navBarPage(Iconsax.calendar),
     
