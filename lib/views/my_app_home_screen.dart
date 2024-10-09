@@ -40,7 +40,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     headerParts(),
                     mySearchBar(),
@@ -60,23 +60,28 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Text(
-                      "Quick & Easy",
-                      style: TextStyle(
-                        fontSize: 20,
-                        letterSpacing: 0.1,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        // I will make this function later
-                      },
-                      child: const Text(
-                        "view all",
-                        style: TextStyle(
-                            color: kBannerColor, fontWeight: FontWeight.w600),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Quick & Easy",
+                          style: TextStyle(
+                            fontSize: 20,
+                            letterSpacing: 0.1,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            // I will make this function later
+                          },
+                          child: const Text(
+                            "view all",
+                            style: TextStyle(
+                                color: kBannerColor, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -94,6 +99,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         child: Row(
                           children: recipies.map((e)=> FoodItemsDisplay(documentSnapshot: e)).toList(),
                         ),
+                        
                       ),
                     );
                   }
@@ -103,6 +109,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                   );
                 },
               ),
+              SizedBox(height: 30,),
             ],
           ),
         ),
@@ -124,7 +131,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                   onTap: () {
                     //if the data will be avilabe then it will work
                     setState(() {
-                      category == streamSnapshot.data!.docs[index]["name"];
+                      category = streamSnapshot.data!.docs[index]["name"];
                     });
                   },
                   child: Container(
@@ -160,9 +167,9 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
     return Row(
       children: [
         const Text(
-          "What are you \ncooking today",
+          "What are you cooking \ntoday",
           style:
-              TextStyle(fontSize: 32, fontWeight: FontWeight.bold, height: 1),
+              TextStyle(fontSize: 28, fontWeight: FontWeight.bold, height: 1),
         ),
         const Spacer(),
         MyIconButton(icon: Iconsax.notification, pressed: () {}),
