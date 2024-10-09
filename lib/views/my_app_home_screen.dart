@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:recipie_app/constants/constants.dart';
+import 'package:recipie_app/views/view_all_items.dart';
 import 'package:recipie_app/widgets/food_items_display.dart';
 import 'package:recipie_app/widgets/my_icon_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -73,7 +74,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            // I will make this function later
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const ViewAllItems(),),);
                           },
                           child: const Text(
                             "view all",
@@ -109,7 +110,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                   );
                 },
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
             ],
           ),
         ),
