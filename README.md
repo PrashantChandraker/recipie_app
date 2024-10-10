@@ -1,6 +1,7 @@
 # recipie_app
 
-A new Flutter project.
+A Cooking guide app made using Provider and firebase_firestore & firebase storage.
+
 
 ## Getting Started
 
