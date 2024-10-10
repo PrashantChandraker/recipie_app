@@ -81,7 +81,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
                               SizedBox(width: 15,),
                               Text("${documentSnapshot["reviews"]} Reviews", style: TextStyle(color: Colors.grey),)
                             ],
-                          )
+                          ),
                         ],
                       );
                     },
